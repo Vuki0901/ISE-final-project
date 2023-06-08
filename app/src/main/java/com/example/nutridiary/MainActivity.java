@@ -6,6 +6,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.Toast;
 
 import com.example.nutridiary.ui.fitness_activities.FitnessActivitiesFragment;
 import com.example.nutridiary.ui.meals.MealsFragment;

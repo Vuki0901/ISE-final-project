@@ -6,6 +6,13 @@ public class FitnessActivity {
     private String activityType;
     private int duration;
 
+    public FitnessActivity(String title, String activityType, int duration) {
+        this.id = id;
+        this.title = title;
+        this.activityType = activityType;
+        this.duration = duration;
+    }
+
     // Constructor
     public FitnessActivity(int id, String title, String activityType, int duration) {
         this.id = id;
@@ -13,6 +20,8 @@ public class FitnessActivity {
         this.activityType = activityType;
         this.duration = duration;
     }
+
+
 
     // Getters
     public int getId() {

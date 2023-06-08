@@ -11,10 +11,12 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.nutridiary.MainActivity;
 import com.example.nutridiary.R;
 import com.example.nutridiary.Repository;
 import com.example.nutridiary.model.Meal;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -32,6 +34,7 @@ public class NewMealActivity extends AppCompatActivity {
     private EditText editTextMealCategory;
     private Button buttonSave;
     private Date selectedDate;
+    private Meal mealToEdit;
 
     private Repository repository;
 
@@ -46,8 +49,30 @@ public class NewMealActivity extends AppCompatActivity {
         buttonPickDate = findViewById(R.id.button_pick_date);
         editTextMealCategory = findViewById(R.id.edit_text_meal_category);
 
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+            // Retrieve the meal data from the extras
+            int mealId = extras.getInt("mealId");
+            String dishName = extras.getString("dishName");
+            int calorieCount = extras.getInt("calorieCount");
+            Date date = (Date) extras.getSerializable("date");
+            String mealCategory = extras.getString("mealCategory");
+
+            // Create a meal object using the retrieved data
+            mealToEdit = new Meal((int) mealId, dishName, calorieCount, date, mealCategory);
+
+            // Prefill the fields with the meal data
+            editTextDishName.setText(dishName);
+            editTextCalorieCount.setText(String.valueOf(calorieCount));
+            editTextMealCategory.setText(mealCategory);
+
+            DateFormat dateFormat = DateFormat.getDateInstance(DateFormat.LONG, Locale.getDefault());
+            String formattedDate = dateFormat.format(date);
+            textViewDateLabel.setText(formattedDate);
+        }
+
         calendar = Calendar.getInstance();
-        dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+        dateFormat = new SimpleDateFormat("dd.MM.yyyy.", Locale.getDefault());
 
         buttonSave = findViewById(R.id.button_save);
 
@@ -112,9 +137,9 @@ public class NewMealActivity extends AppCompatActivity {
         Meal meal = new Meal(dishName, calorieCount, date, mealCategory);
 
         // Check if this is a new meal or an existing one to update
-        if (getIntent().hasExtra("meal_id")) {
+        if (getIntent().hasExtra("mealId")) {
             // Update existing meal
-            int mealId = getIntent().getIntExtra("meal_id", -1);
+            int mealId = getIntent().getIntExtra("mealId", -1);
             meal.setId(mealId);
             repository.updateMeal(meal);
             Toast.makeText(this, "Meal updated successfully", Toast.LENGTH_SHORT).show();
