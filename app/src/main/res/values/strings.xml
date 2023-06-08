@@ -1,5 +1,5 @@
 <resources>
     <string name="app_name">NutriDiary</string>
-    <string name="title_meals">Meals</string>
-    <string name="title_fitnessActivites">Fitness activities</string>
+    <string name="title_meals">Prehrana</string>
+    <string name="title_fitnessActivites">Tjelesna aktivnost</string>
 </resources>

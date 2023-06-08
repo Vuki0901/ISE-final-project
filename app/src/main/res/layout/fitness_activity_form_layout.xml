@@ -7,24 +7,24 @@
         android:id="@+id/edit_text_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Title" />
+        android:hint="Naslov" />
 
     <EditText
         android:id="@+id/edit_text_activity_type"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Activity Type" />
+        android:hint="Vrsta aktivnosti" />
 
     <EditText
         android:id="@+id/edit_text_duration"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Duration" />
+        android:hint="Trajanje u minutama" />
 
     <Button
         android:id="@+id/button_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save" />
+        android:text="Spremi" />
 
 </LinearLayout>

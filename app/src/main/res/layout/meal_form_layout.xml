@@ -7,19 +7,19 @@
         android:id="@+id/edit_text_dish_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Dish Name" />
+        android:hint="Ime jela" />
 
     <EditText
         android:id="@+id/edit_text_calorie_count"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Calorie Count" />
+        android:hint="Ukupno kalorija" />
 
     <TextView
         android:id="@+id/text_view_date_label"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Date: "
+        android:text="Datum: "
         android:textSize="16sp"
         android:padding="8dp"/>
 
@@ -27,7 +27,7 @@
         android:id="@+id/button_pick_date"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Pick Date"
+        android:text="Izaberi datum"
         android:layout_gravity="center"
         android:layout_marginTop="8dp"/>
 
@@ -35,12 +35,12 @@
         android:id="@+id/edit_text_meal_category"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Meal Category" />
+        android:hint="Vrsta obroka (npr. Ručak)" />
 
     <Button
         android:id="@+id/button_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save" />
+        android:text="Spremi" />
 
 </LinearLayout>
