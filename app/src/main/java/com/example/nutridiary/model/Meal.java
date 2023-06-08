@@ -18,6 +18,13 @@ public class Meal {
         this.mealCategory = mealCategory;
     }
 
+    public Meal(String dishName, int calorieCount, Date date, String mealCategory) {
+        this.dishName = dishName;
+        this.calorieCount = calorieCount;
+        this.date = date;
+        this.mealCategory = mealCategory;
+    }
+
     // Getters
     public int getId() {
         return id;

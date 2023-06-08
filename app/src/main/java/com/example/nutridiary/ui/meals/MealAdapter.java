@@ -12,7 +12,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.nutridiary.R;
 import com.example.nutridiary.model.Meal;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MealViewHolder> {
@@ -82,10 +85,13 @@ public class MealAdapter extends RecyclerView.Adapter<MealAdapter.MealViewHolder
         }
 
         public void bind(Meal meal) {
+            Date date = meal.getDate();
+            DateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy. HH:mm:ss");
+
             // Bind the meal data to the views
             textViewDishName.setText(meal.getDishName());
-            textViewCalorieCount.setText(String.valueOf(meal.getCalorieCount()));
-            textViewDate.setText((CharSequence) meal.getDate());
+            textViewCalorieCount.setText(String.valueOf(meal.getCalorieCount()) + " kcal");
+            textViewDate.setText(dateFormat.format(date));
             textViewMealCategory.setText(meal.getMealCategory());
         }
     }
